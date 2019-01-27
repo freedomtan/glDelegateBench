@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">glDelegateBench</string>
+    <string name="title_image_classification">Mobilenet V1</string>
+    <string name="title_pose_estimation">PoseNet</string>
+    <string name="title_segmentation"> DeepLab </string>
+    <string name="title_object_detection"> Mobilenet SSD </string>
+    <string name="title_contours"> face contours </string>
+</resources>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_image_classfication"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="@string/title_image_classification" />
+
+    <item
+        android:id="@+id/navigation_pose_estimation"
+        android:icon="@drawable/ic_dashboard_black_24dp"
+        android:title="@string/title_pose_estimation" />
+
+    <item
+        android:id="@+id/navigation_segmentation"
+        android:icon="@drawable/ic_notifications_black_24dp"
+        android:title="@string/title_segmentation" />
+
+    <item
+        android:id="@+id/navigation_object_detection"
+        android:icon="@drawable/ic_notifications_black_24dp"
+        android:title="@string/title_object_detection" />
+
+    <item
+        android:id="@+id/navigation_contours"
+        android:icon="@drawable/ic_notifications_black_24dp"
+        android:title="@string/title_contours" />
+
+</menu>
