@@ -9,6 +9,8 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.NumberPicker;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Button;
 
@@ -27,7 +29,10 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView mTextMessage;
     private TextView resultMessage;
+    private NumberPicker numberPicker;
     private NNModel mModel;
+    private boolean enableGPU = false;
+    private int numberOfThreads = 1;
 
     private MappedByteBuffer modelBuffer;
     private Interpreter.Options options;
@@ -118,9 +123,39 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 case R.id.navigation_contours:
                     mTextMessage.setText(R.string.title_contours);
+                    if (mModel != null)
+                        mModel = null;
+                    {
+                        // input: 1x192x192x3
+                        // output: 1x1x1x266, 1x1x1x1x4
+                        int iShape[] = {1 * 192 * 192 * 3 * 4};
+                        int oShape[] = {1 * 1 * 1 * 266 * 4, 1 * 1 * 1 * 1 * 4};
+                        mModel = new NNModel("contours.tflite", iShape, oShape);
+                        try {
+                            modelBuffer = loadModelFile("contours.tflite");
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
                     return true;
             }
             return false;
+        }
+    };
+
+    public void onRadioButtonClicked(View view) {
+        boolean checked = ((RadioButton) view).isChecked();
+
+        switch(view.getId()) {
+            case R.id.cpuButton:
+                if (checked)
+                    enableGPU = false;
+                break;
+            case R.id.gpuButton:
+                if (checked)
+                    enableGPU = true;
+                break;
+
         }
     };
 
@@ -150,8 +185,10 @@ public class MainActivity extends AppCompatActivity {
             long startTime, stopTime, accTime = 0;
 
             options = new Interpreter.Options();
+            options.setNumThreads(numberOfThreads);
             GpuDelegate delegate = new GpuDelegate();
-            options.addDelegate(delegate);
+            if (enableGPU)
+                options.addDelegate(delegate);
             interpreter = new Interpreter(modelBuffer, options);
 
             for (int i=0; i < warmupRuns; i++) {
@@ -173,7 +210,7 @@ public class MainActivity extends AppCompatActivity {
             Log.i("here: ", "time: " + accTime/loops);
             resultMessage.setText("avg time: " + accTime/loops + " ms");
         }
-};
+}   ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -182,8 +219,21 @@ public class MainActivity extends AppCompatActivity {
 
         mTextMessage = (TextView) findViewById(R.id.message);
         resultMessage = (TextView) findViewById(R.id.textView);
+        resultMessage.setText("Results:");
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+        numberPicker = (NumberPicker) findViewById(R.id.numberPicker);
+        numberPicker.setMinValue(1);
+        numberPicker.setMaxValue(10);
+        numberPicker.setValue(1);
+        numberPicker.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+            @Override
+            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
+                numberOfThreads = newVal;
+            }
+        });
+
         Button button = (Button) findViewById(R.id.button);
         button.setOnClickListener(mOnButtonClickListener);
         Log.i("here", "here");
@@ -195,5 +245,4 @@ public class MainActivity extends AppCompatActivity {
         } catch (Exception e) {
         }
     }
-
 }
