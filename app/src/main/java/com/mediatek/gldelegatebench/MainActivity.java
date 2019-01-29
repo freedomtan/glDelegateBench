@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private NumberPicker numberPicker;
     private NNModel mModel;
     private boolean enableGPU = false;
+    private boolean enableNNAPI = false;
     private int numberOfThreads = 1;
 
     private MappedByteBuffer modelBuffer;
@@ -148,16 +149,26 @@ public class MainActivity extends AppCompatActivity {
 
         switch(view.getId()) {
             case R.id.cpuButton:
-                if (checked)
+                if (checked) {
                     enableGPU = false;
+                    enableNNAPI = false;
+                }
                 break;
             case R.id.gpuButton:
-                if (checked)
+                if (checked) {
                     enableGPU = true;
+                    enableNNAPI = false;
+                }
+                break;
+            case R.id.nnapiButton:
+                if (checked) {
+                    enableNNAPI = true;
+                    enableGPU = false;
+                }
                 break;
 
         }
-    };
+    }
 
     private OnClickListener mOnButtonClickListener = new OnClickListener() {
 
@@ -189,6 +200,8 @@ public class MainActivity extends AppCompatActivity {
             GpuDelegate delegate = new GpuDelegate();
             if (enableGPU)
                 options.addDelegate(delegate);
+            options.setUseNNAPI(enableNNAPI);
+
             interpreter = new Interpreter(modelBuffer, options);
 
             for (int i=0; i < warmupRuns; i++) {
