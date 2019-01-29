@@ -201,6 +201,7 @@ public class MainActivity extends AppCompatActivity {
             if (enableGPU)
                 options.addDelegate(delegate);
             options.setUseNNAPI(enableNNAPI);
+            options.setAllowFp16PrecisionForFp32(true);
 
             interpreter = new Interpreter(modelBuffer, options);
 
