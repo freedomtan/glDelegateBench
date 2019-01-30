@@ -9,7 +9,7 @@ For the 4 public models mentioned in [1], I got the following numbers on Pixel 2
 |----------|------------:|-------------:|---:|
 |Mobilenet | 150 | 75 | 21 |
 |PoseNet   | 183 | 96 | 40 |
-|DeepLab V3| 219 | 131 | 01 |
+|DeepLab V3| 219 | 131 | 91 |
 |Mobilenet SSD V2 COCO| 264 | 158 | 49 |
 
 
