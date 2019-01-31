@@ -12,6 +12,7 @@ For the 4 public models mentioned in [1], I got the following numbers on Pixel 2
 |DeepLab V3| 219 | 131 | 91 |
 |Mobilenet SSD V2 COCO| 264 | 158 | 49 |
 
+Check https://github.com/freedomtan/glDelegateBenchmark/ for iOS code
 
 
 [1] https://medium.com/tensorflow/tensorflow-lite-now-faster-with-mobile-gpus-developer-preview-e15797e6dee7
