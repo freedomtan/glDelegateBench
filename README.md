@@ -12,6 +12,16 @@ For the 4 public models mentioned in [1], I got the following numbers on Pixel 2
 |DeepLab V3| 219 | 131 | 91 |
 |Mobilenet SSD V2 COCO| 264 | 158 | 49 |
 
+On Xiaomi Mi 9, I got
+
+|model name|CPU 1 thread (ms)|CPU 4 threads (ms) |GPU (ms)|
+|----------|------------:|-------------:|---:|
+|Mobilenet | 39 | 35 | 15 |
+|PoseNet   | 48 | 47 | 19 |
+|DeepLab V3| 61 | 64 | 65 |
+|Mobilenet SSD V2 COCO| 69 | 75 | 36 |
+
+
 Check https://github.com/freedomtan/glDelegateBenchmark/ for iOS code
 
 
