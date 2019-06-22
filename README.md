@@ -33,6 +33,16 @@ On Pixel 3a, I got
 
 Check https://github.com/freedomtan/glDelegateBenchmark/ for iOS code
 
+## add a `local_tflite_aar` to test ruy, the new TFLite CPU backend
+### on Pixel 2.
+
+|model name|CPU 1 thread (ms)|CPU 4 threads (ms) |GPU (ms)|
+|----------|------------:|-------------:|---:|
+|Mobilenet | 117 | 37 | 20 |
+|PoseNet   | 140 | 47 | 39 |
+|DeepLab V3| 177 | 72 | 122 |
+|Mobilenet SSD V2 COCO| 202 | 75 | 60 |
+
 
 [1] https://medium.com/tensorflow/tensorflow-lite-now-faster-with-mobile-gpus-developer-preview-e15797e6dee7
 
