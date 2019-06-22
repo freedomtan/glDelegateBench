@@ -25,10 +25,10 @@ On Pixel 3a, I got
 
 |model name|CPU 1 thread (ms)|CPU 4 threads (ms) |GPU (ms)|
 |----------|------------:|-------------:|---:|
-|Mobilenet | 113 | 80 | 118 |
-|PoseNet   | 138 | 96 | 175 |
-|DeepLab V3| 173 | 132 | 270 |
-|Mobilenet SSD V2 COCO| 200 | 167 | 250 |
+|Mobilenet | 113 | 80 | 52 |
+|PoseNet   | 138 | 96 | 78 |
+|DeepLab V3| 173 | 132 | 144 |
+|Mobilenet SSD V2 COCO| 200 | 167 | 113 |
 
 
 Check https://github.com/freedomtan/glDelegateBenchmark/ for iOS code
