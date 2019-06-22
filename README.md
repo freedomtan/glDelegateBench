@@ -33,7 +33,7 @@ On Pixel 3a, I got
 
 Check https://github.com/freedomtan/glDelegateBenchmark/ for iOS code
 
-## add a `local_tflite_aar` to test ruy, the new TFLite CPU backend
+## add a `local_tflite_aar` branch to test ruy, the new TFLite CPU backend
 ### on Pixel 2.
 
 |model name|CPU 1 thread (ms)|CPU 4 threads (ms) |GPU (ms)|
