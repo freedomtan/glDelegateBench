@@ -23,7 +23,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.tensorflow.lite.Interpreter;
-import org.tensorflow.lite.experimental.GpuDelegate;
+import org.tensorflow.lite.gpu.GpuDelegate;
 
 public class MainActivity extends AppCompatActivity {
 
