@@ -56,7 +56,7 @@ Check https://github.com/freedomtan/glDelegateBenchmark/ for iOS code
 ## Update Oct 31, 2019. Nightly aar binaries are with ruy and OpenCL backend
 ### on Pixel 2 (w/ libOpenCL-pixel.so from Pixel 3), I got
 
-|model name|CPU 1 thread (ms)|CPU 4 threads (ms) |GPU CL(ms)|
+|model name|CPU 1 thread (ms)|CPU 4 threads (ms) |GPU OpenCL (ms)|GPU GL Compute Shader (ms)|
 |----------|------------:|-------------:|---:|---:|
 |Mobilenet | 118 | 34 | 10 | 21 |
 |PoseNet   | 142 | 43 | 14 | 41 |
