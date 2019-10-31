@@ -52,6 +52,26 @@ Check https://github.com/freedomtan/glDelegateBenchmark/ for iOS code
 |DeepLab V3| 164 | 82 | 145 |
 |Mobilenet SSD V2 COCO| 184 | 86 | 113 |
 
+
+## Update Oct 31, 2019. Nightly aar binaries are with ruy and OpenCL backend
+### on Pixel 2 (w/ libOpenCL-pixel.so from Pixel 3), I got
+
+|model name|CPU 1 thread (ms)|CPU 4 threads (ms) |GPU CL(ms)|
+|----------|------------:|-------------:|---:|---:|
+|Mobilenet | 118 | 34 | 10 | 21 |
+|PoseNet   | 142 | 43 | 14 | 41 |
+|DeepLab V3| 174 | 75 | 21 | 69 |
+|Mobilenet SSD V2 COCO| 202 | 73 | 18 | 48 |
+
+### on Pixel 3a, I got
+
+|model name|CPU 1 thread (ms)|CPU 4 threads (ms) |GPU (ms)|
+|----------|------------:|-------------:|---:|
+|Mobilenet | 107 | 44 | 30 |
+|PoseNet   | 131 | 57 | 42 |
+|DeepLab V3| 164 | 82 | 66 |
+|Mobilenet SSD V2 COCO| 184 | 86 | 55 |
+
 [1] https://medium.com/tensorflow/tensorflow-lite-now-faster-with-mobile-gpus-developer-preview-e15797e6dee7
 
 [2] https://www.tensorflow.org/lite/performance/gpu
