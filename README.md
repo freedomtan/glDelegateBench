@@ -72,6 +72,15 @@ Check https://github.com/freedomtan/glDelegateBenchmark/ for iOS code
 |DeepLab V3| 164 | 82 | 66 |
 |Mobilenet SSD V2 COCO| 184 | 86 | 55 |
 
+### on Pixel 4, I got
+
+|model name|CPU 1 thread (ms)|CPU 4 threads (ms) |GPU Delegate (ms)| NNAPI (ms)|
+|----------|------------:|-------------:|---:|---:|
+|Mobilenet | 42 | 13 | 8 | 7 | 
+|PoseNet   | 52 | 15 | 11 | 11 |
+|DeepLab V3| 66 | 25 | 20 | 98 | 
+|Mobilenet SSD V2 COCO| 70 | 24 | 16 | 86 | 
+
 [1] https://medium.com/tensorflow/tensorflow-lite-now-faster-with-mobile-gpus-developer-preview-e15797e6dee7
 
 [2] https://www.tensorflow.org/lite/performance/gpu
