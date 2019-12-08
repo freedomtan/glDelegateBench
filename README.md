@@ -54,6 +54,7 @@ Check https://github.com/freedomtan/glDelegateBenchmark/ for iOS code
 
 
 ## Update Oct 31, 2019. Nightly aar binaries are with ruy and OpenCL backend
+## Update Dec 8, 2019, Dec for Pixel 3a came with DSP and GPU NNAPI 1.2 driver, so we can have NNAPI numbers on Pixel 3a 
 ### on Pixel 2 (w/ libOpenCL-pixel.so from Pixel 3), I got
 
 |model name|CPU 1 thread (ms)|CPU 4 threads (ms) |GPU OpenCL (ms)|GPU GL Compute Shader (ms)|
@@ -65,12 +66,12 @@ Check https://github.com/freedomtan/glDelegateBenchmark/ for iOS code
 
 ### on Pixel 3a, I got
 
-|model name|CPU 1 thread (ms)|CPU 4 threads (ms) |GPU (ms)|
-|----------|------------:|-------------:|---:|
-|Mobilenet | 107 | 44 | 30 |
-|PoseNet   | 131 | 57 | 42 |
-|DeepLab V3| 164 | 82 | 66 |
-|Mobilenet SSD V2 COCO| 184 | 86 | 55 |
+|model name|CPU 1 thread (ms)|CPU 4 threads (ms) |GPU (ms)| NNPAI (ms)|
+|----------|------------:|-------------:|---:|----:|
+|Mobilenet | 107 | 44 | 28 | 25 |
+|PoseNet   | 131 | 57 | 38 | 32 |
+|DeepLab V3| 164 | 82 | 60 | 186 |
+|Mobilenet SSD V2 COCO| 184 | 86 | 54 | 249 |
 
 ### on Pixel 4, I got
 
